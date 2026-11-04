@@ -1,0 +1,17 @@
+{
+  "name": "Keys to Home",
+  "short_name": "Keys to Home",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff9ef",
+  "theme_color": "#f5ba41",
+  "description": "A private house savings dashboard.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
