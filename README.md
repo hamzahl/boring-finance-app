@@ -17,7 +17,13 @@ Using a local server (rather than double-clicking `index.html`) lets the service
 
 Create a production build with `npm run build`; the deployable static files are written to `dist/`.
 
-The dashboard saves figures only in the browser's local storage on the device you use.
+The dashboard stores its figures in the connected Upstash Redis datastore. On first use on a device, enter the `DASHBOARD_ACCESS_KEY` configured in Vercel; the browser retains it locally for later visits. It also keeps a device-local backup if the datastore is temporarily unavailable.
+
+## Architecture
+
+The browser is organised by feature rather than by one global script. `src/core/` contains small, stable cross-feature utilities; `src/app/` composes enabled features; and each feature owns its domain calculations, application controller, browser infrastructure, and presentation bindings. The existing house-savings feature lives at `src/features/house-savings/`; future Zakat and expenses features can follow the same shape without changing it.
+
+The server follows the same boundary: `api/values.js` remains the HTTP adapter and public contract, `api/features/house-savings/` contains the feature rules, and `api/infrastructure/` contains the Upstash adapter. A future account or shared-goal implementation can replace the fixed dashboard identifier with an authorised user or goal identifier without changing the browser contract.
 
 ## Deployment
 
