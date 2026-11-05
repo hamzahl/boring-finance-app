@@ -2,7 +2,6 @@ import { byId } from '../../../core/browser/by-id.js';
 import { formatCurrency } from '../../../core/format/currency.js';
 import { HOUSE_SAVINGS_FIELDS, calculateSavings } from '../domain/savings-calculator.js';
 export function createHouseSavingsView() {
-  document.querySelector('.privacy-badge').textContent = '✦ saved to your data store';
   document.querySelector('.form-heading small').textContent = 'Preview updates live; save to sync them.';
   const input = Object.fromEntries(HOUSE_SAVINGS_FIELDS.map((field) => [field, byId(field)]));
   const output = { goal: byId('goalDisplay'), total: byId('totalDisplay'), fill: byId('progressFill'), bar: byId('progressBar'), percent: byId('percent'), remaining: byId('remaining'), encouragement: byId('encouragement'), setup: byId('setupPrompt'), status: byId('saveState'), form: byId('savingsForm') };

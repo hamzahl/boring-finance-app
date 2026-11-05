@@ -11,11 +11,11 @@ function getAccessKey() {
 async function request(method, values) {
   const key = getAccessKey(); if (!key) throw new Error('An access key is required.');
   const response = await fetch(VALUES_ENDPOINT, { method, headers: { 'Content-Type': 'application/json', 'X-Dashboard-Access-Key': key }, body: values ? JSON.stringify({ values }) : undefined });
-  const payload = await response.json().catch(() => ({})); if (!response.ok) throw new Error(payload.error || 'The datastore could not be reached.'); return payload;
+  const payload = await response.json().catch(() => ({})); if (!response.ok) throw new Error(payload.error || 'Your saved figures could not be reached.'); return payload;
 }
 export function createHouseSavingsRepository() {
   return {
-    async load() { const fallback = readLocal(); try { const { values } = await request('GET'); if (values) writeLocal(values); return { values: values || fallback, status: values ? 'Loaded from your data store.' : 'No saved values yet — add your figures and save.' }; } catch (error) { return { values: fallback, status: `${error.message} Using this device’s last saved values.` }; } },
+    async load() { const fallback = readLocal(); try { const { values } = await request('GET'); if (values) writeLocal(values); return { values: values || fallback, status: values ? 'Your saved figures are ready.' : 'No saved values yet — add your figures and save.' }; } catch (error) { return { values: fallback, status: `${error.message} Using this device’s last saved values.` }; } },
     async save(values) { writeLocal(values); try { await request('PUT', values); } catch (error) { throw new Error(`${error.message} A local backup was saved on this device.`); } },
   };
 }
