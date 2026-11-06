@@ -1,5 +1,5 @@
 export const HOUSE_SAVINGS_FIELDS = ['goal', 'starling', 'savings', 'htb', 'lisa'];
-const ACCOUNT_FIELDS = HOUSE_SAVINGS_FIELDS.slice(1);
+export const ACCOUNT_FIELDS = HOUSE_SAVINGS_FIELDS.slice(1);
 export function toAmount(value) { return Math.max(0, Number.parseFloat(value) || 0); }
 export function calculateSavings(values) {
   const goal = toAmount(values.goal);

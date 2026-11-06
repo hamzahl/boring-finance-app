@@ -78,3 +78,27 @@ footer { margin-top: 25px; text-align: center; font-size: .85rem; }
 }
 
 @media (prefers-reduced-motion: reduce) { .progress-fill { transition: none; } }
+
+.forecast-panel { margin-top: 34px; padding-top: 28px; border-top: 2px solid var(--ink); }
+.forecast-result { padding: 22px; border-radius: 16px; background: #d8f0e4; box-shadow: 0 10px 24px rgba(23, 49, 58, .14); }
+.forecast-result h2 { font-size: clamp(1.35rem, 3vw, 2rem); line-height: 1.18; }
+.forecast-result output { display: block; margin-top: 6px; color: #174e40; font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -.04em; }
+.forecast-label { margin: 0 0 7px; color: #285c4f; font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.forecast-result p { margin: 10px 0 0; line-height: 1.45; }
+.bonus-breakdown { display: grid; grid-template-columns: 1fr auto; gap: 3px 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(23, 49, 58, .28); }
+.bonus-breakdown > span { font-size: .82rem; font-weight: 800; }
+.bonus-breakdown > strong { font-size: 1.4rem; font-variant-numeric: tabular-nums; }
+.bonus-breakdown small { grid-column: 1 / -1; display: flex; gap: 18px; color: #285c4f; font-size: .8rem; }
+.bonus-breakdown b { font-variant-numeric: tabular-nums; }
+.forecast-note, .scheme-note { color: #5b5550; font-size: .85rem; }
+.forecast-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 20px 0 26px; }
+.forecast-fields label { font-size: .84rem; font-weight: 800; }
+.forecast-fields input, .schedule-row input, .schedule-row select { width: 100%; margin-top: 6px; padding: 11px; border: 2px solid var(--ink); border-radius: 10px; background: #fffdf7; color: var(--ink); font: 700 .95rem inherit; }
+.schedule-heading { margin-top: 24px; }
+.schedule-heading h3, .forecast-panel h3 { margin: 0; font-size: 1rem; }
+.schedule-grid { display: grid; gap: 10px; margin-top: 12px; }
+.schedule-row { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; align-items: center; gap: 10px; }
+.schedule-row input, .schedule-row select { margin: 0; }
+.scheme-note { margin: 18px 0 0; line-height: 1.4; }
+input::selection { background: #f5ba41; color: var(--ink); }
+@media (max-width: 700px) { .forecast-fields, .schedule-row { grid-template-columns: 1fr; } .schedule-row { padding: 12px; border-radius: 12px; background: #fff7e9; } }
